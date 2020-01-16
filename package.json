@@ -1,12 +1,7 @@
 {
-  "name": "eslint-plugin-jane",
-  "description": "Jane's ESLint plugin and configurations",
-  "version": "7.0.1",
-  "author": {
-    "email": "zac@zacanger.com",
-    "name": "Zac Anger",
-    "url": "http://zacanger.com"
-  },
+  "name": "eslint-plugin-pdq",
+  "description": "pdq's ESLint plugin and configurations",
+  "version": "0.0.0",
   "license": "MIT",
   "main": "index.js",
   "files": [
@@ -23,12 +18,12 @@
     "test:lint": "eslint -c .eslintrc.json *.js rules",
     "test:test": "node test"
   },
-  "homepage": "https://github.com/jane/eslint-plugin-jane#readme",
+  "homepage": "https://github.com/pdq/eslint-plugin-pdq#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jane/eslint-plugin-jane.git"
+    "url": "https://github.com/pdq/eslint-plugin-pdq.git"
   },
-  "bugs": "https://github.com/jane/eslint-plugin-jane/issues",
+  "bugs": "https://github.com/pdq/eslint-plugin-pdq/issues",
   "keywords": [
     "config",
     "eslint",
@@ -36,8 +31,8 @@
     "eslint-plugin",
     "eslintconfig",
     "eslintplugin",
-    "jane",
     "lint",
+    "pdq",
     "plugin"
   ],
   "dependencies": {
