@@ -1,7 +1,8 @@
 {
-  "name": "eslint-plugin-pdq",
+  "name": "@pdq/eslint-plugin-pdq",
   "description": "pdq's ESLint plugin and configurations",
   "version": "1.0.0",
+  "author": "pdq",
   "license": "MIT",
   "main": "index.js",
   "files": [
@@ -21,9 +22,11 @@
   "homepage": "https://github.com/pdq/eslint-plugin-pdq#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pdq/eslint-plugin-pdq.git"
+    "url": "git+https://github.com/pdq/eslint-plugin-pdq.git"
   },
-  "bugs": "https://github.com/pdq/eslint-plugin-pdq/issues",
+  "bugs": {
+    "url": "https://github.com/pdq/eslint-plugin-pdq/issues"
+  },
   "keywords": [
     "config",
     "eslint",
