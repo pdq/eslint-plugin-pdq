@@ -14,12 +14,9 @@ const typescriptRules = {
       },
     },
   ],
-  '@typescript-eslint/camelcase': [2, { properties: 'never' }],
-  '@typescript-eslint/class-name-casing': 2,
   '@typescript-eslint/explicit-function-return-type': 0,
   '@typescript-eslint/explicit-member-accessibility': 0,
   '@typescript-eslint/indent': 0,
-  '@typescript-eslint/interface-name-prefix': 2,
   '@typescript-eslint/member-delimiter-style': [
     2,
     {
@@ -30,6 +27,48 @@ const typescriptRules = {
       singleline: {
         delimiter: 'comma',
         requireLast: true,
+      },
+    },
+  ],
+  '@typescript-eslint/naming-convention': [
+    'error',
+    {
+      selector: 'default',
+      format: ['camelCase'],
+    },
+
+    {
+      selector: 'variable',
+      format: ['camelCase', 'UPPER_CASE'],
+    },
+    {
+      selector: 'variable',
+      types: ['function'],
+      format: ['camelCase', 'PascalCase'],
+    },
+    {
+      selector: 'parameter',
+      format: ['camelCase'],
+      leadingUnderscore: 'allow',
+    },
+
+    {
+      selector: 'memberLike',
+      modifiers: ['private'],
+      format: ['camelCase'],
+      leadingUnderscore: 'require',
+    },
+
+    {
+      selector: 'typeLike',
+      format: ['PascalCase'],
+    },
+    {
+      selector: 'interface',
+      format: ['PascalCase'],
+      custom: {
+        regex: '^I[A-Z]',
+        match: false,
       },
     },
   ],
