@@ -50,6 +50,10 @@ const typescriptRules = {
       format: ['UPPER_CASE'],
     },
     {
+      selector: 'enum',
+      format: ['PascalCase'],
+    },
+    {
       selector: 'variable',
       types: ['function'],
       format: ['camelCase', 'PascalCase'],
