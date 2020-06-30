@@ -14,6 +14,7 @@ const typescriptRules = {
       },
     },
   ],
+  '@typescript-eslint/camelCase': 0,
   '@typescript-eslint/explicit-function-return-type': 0,
   '@typescript-eslint/explicit-member-accessibility': 0,
   '@typescript-eslint/indent': 0,
@@ -36,10 +37,21 @@ const typescriptRules = {
       selector: 'default',
       format: ['camelCase'],
     },
-
     {
       selector: 'variable',
-      format: ['camelCase', 'UPPER_CASE'],
+      format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+    },
+    {
+      selector: 'property',
+      format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+    },
+    {
+      selector: 'enumMember',
+      format: ['UPPER_CASE'],
+    },
+    {
+      selector: 'enum',
+      format: ['PascalCase'],
     },
     {
       selector: 'variable',
@@ -48,17 +60,15 @@ const typescriptRules = {
     },
     {
       selector: 'parameter',
-      format: ['camelCase'],
+      format: ['camelCase', 'PascalCase'],
       leadingUnderscore: 'allow',
     },
-
     {
       selector: 'memberLike',
       modifiers: ['private'],
       format: ['camelCase'],
       leadingUnderscore: 'require',
     },
-
     {
       selector: 'typeLike',
       format: ['PascalCase'],
