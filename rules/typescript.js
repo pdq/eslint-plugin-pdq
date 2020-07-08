@@ -40,6 +40,7 @@ const typescriptRules = {
     {
       selector: 'variable',
       format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
+      leadingUnderscore: 'allow',
     },
     {
       selector: 'property',
@@ -57,6 +58,7 @@ const typescriptRules = {
       selector: 'variable',
       types: ['function'],
       format: ['camelCase', 'PascalCase'],
+      leadingUnderscore: 'allow',
     },
     {
       selector: 'parameter',
