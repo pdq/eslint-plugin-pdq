@@ -69,7 +69,6 @@ const typescriptRules = {
       selector: 'memberLike',
       modifiers: ['private'],
       format: ['camelCase'],
-      leadingUnderscore: 'require',
     },
     {
       selector: 'typeLike',
