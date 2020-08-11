@@ -95,8 +95,9 @@ const typescriptRules = {
   '@typescript-eslint/no-unused-vars': [
     2,
     {
-      ignoreRestSiblings: true,
       argsIgnorePattern: '^_',
+      ignoreRestSiblings: true,
+      varsIgnorePattern: '^_',
     },
   ],
   '@typescript-eslint/no-useless-constructor': 2,
