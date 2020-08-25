@@ -1,20 +1,22 @@
 name: Publish
 
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - master
 
 jobs:
+  if: "!contains(github.event.head_commit.message, 'skipci') && !contains(github.event.head_commit.message, 'norelease')"
+
   version:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
 
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.BOT_PAT }} # Hack: A PAT from an admin account to override our branch protections
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup git
+      - name: Setup Git
         run: |
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config user.name "$GITHUB_ACTOR"
@@ -25,11 +27,7 @@ jobs:
         run: |
           /bin/bash ./bin/npm-version.sh "$PR_TITLE"
 
-      # GH Actions don't infinite loop:
-      # https://github.community/t5/GitHub-Actions/How-to-push-to-protected-branches-in-a-GitHub-Action/m-p/36156/highlight/true#M2461
-      # Except when using a PAT (see 'with token' above in checkout step):
-      # https://github.community/t5/GitHub-Actions/How-to-push-to-protected-branches-in-a-GitHub-Action/m-p/36156/highlight/true#M2461
-      - name: Push
+      - name: Push Tags
         run: git push --follow-tags
 
   publish:
@@ -42,7 +40,10 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: '12.x'
+        registry-url: 'https://registry.npmjs.org'
 
-    - name: Publish
-      run: npm publish
+    - name: Publish (NPM)
+      run: npm run publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
