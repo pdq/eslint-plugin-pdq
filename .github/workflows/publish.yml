@@ -22,7 +22,7 @@ jobs:
 
       - name: Version
         env:
-          PR_TITLE: ${{ toJson(github.event.pull_request.title) }}
+          PR_TITLE: ${{ toJson(github.event.head_commit.message) }}
         run: |
           /bin/bash ./bin/npm-version.sh "$PR_TITLE"
 
