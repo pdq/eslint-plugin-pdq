@@ -22,13 +22,6 @@ const defaultParserOptions = {
 const defaultPlugins = ['babel', 'unicorn', 'promise', 'import']
 
 const plugin = {
-  environments: {
-    browser: {
-      globals: {
-        _jane: false,
-      },
-    },
-  },
   configs: {
     recommended: {
       plugins: defaultPlugins,
