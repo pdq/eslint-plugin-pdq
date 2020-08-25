@@ -115,6 +115,7 @@ const typescriptRules = {
   'node/no-missing-import': 0,
   'node/no-missing-require': 0,
   camelcase: 0,
+  '@typescript-eslint/explicit-module-boundary-types': 0,
 }
 
 module.exports = { typescriptRules }
