@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          # this token is implicitly provided by GitHub Actions
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Git
