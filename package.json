@@ -15,7 +15,7 @@
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "format": "prettier \"*.js\" \"rules/*.js\" --write && sortpack",
     "preversion": "npm t",
-    "test": "run-s -s test:lint test:test",
+    "test": "run-s test:lint test:test",
     "test:lint": "eslint -c .eslintrc.json *.js rules",
     "test:test": "node test"
   },
