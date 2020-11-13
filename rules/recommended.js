@@ -1,10 +1,6 @@
 const baseRules = {
   'array-callback-return': 2,
   'arrow-body-style': [2, 'as-needed'],
-  'babel/no-unused-expressions': [
-    2,
-    { allowTernary: true, allowShortCircuit: true },
-  ],
   camelcase: [2, { properties: 'never' }],
   'comma-dangle': [
     2,
