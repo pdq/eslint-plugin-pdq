@@ -19,7 +19,7 @@ const defaultParserOptions = {
   sourceType: 'module',
 }
 
-const defaultPlugins = ['babel', 'unicorn', 'promise', 'import']
+const defaultPlugins = ['@babel/eslint-plugin', 'unicorn', 'promise', 'import']
 
 const plugin = {
   configs: {
