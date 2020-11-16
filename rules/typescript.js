@@ -111,11 +111,12 @@ const typescriptRules = {
   '@typescript-eslint/restrict-plus-operands': 2,
   '@typescript-eslint/semi': 0,
   '@typescript-eslint/type-annotation-spacing': 0,
+  '@typescript-eslint/explicit-module-boundary-types': 0,
   'no-unused-labels': 0,
+  'no-use-before-define': 0,
   'node/no-missing-import': 0,
   'node/no-missing-require': 0,
   camelcase: 0,
-  '@typescript-eslint/explicit-module-boundary-types': 0,
 }
 
 module.exports = { typescriptRules }
