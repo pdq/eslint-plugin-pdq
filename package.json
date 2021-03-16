@@ -14,11 +14,11 @@
   "scripts": {
     "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
     "format": "prettier \"*.js\" \"rules/*.js\" --write && sortpack",
+    "prepare": "husky install",
     "preversion": "npm t",
     "test": "run-s test:lint test:test",
     "test:lint": "eslint -c .eslintrc.json *.js rules",
-    "test:test": "node test",
-    "prepare": "husky install"
+    "test:test": "node test"
   },
   "homepage": "https://github.com/pdq/eslint-plugin-pdq#readme",
   "repository": {
@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "4.18.0",
     "@typescript-eslint/parser": "4.18.0",
     "babel-eslint": "10.1.0",
-    "eslint-config-prettier": "6.15.0",
+    "eslint-config-prettier": "8.1.0",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jest": "24.3.1",
     "eslint-plugin-jsx-a11y": "6.4.1",
