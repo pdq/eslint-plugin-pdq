@@ -92,6 +92,8 @@ const typescriptRules = {
   '@typescript-eslint/no-non-null-assertion': 2,
   '@typescript-eslint/no-parameter-properties': 0,
   '@typescript-eslint/no-unnecessary-type-assertion': 2,
+  '@typescript-eslint/no-unnecessary-condition': 2,
+  '@typescript-eslint/no-unused-expressions': 2,
   '@typescript-eslint/no-unused-vars': [
     2,
     {
