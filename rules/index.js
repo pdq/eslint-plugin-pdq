@@ -1,14 +1,8 @@
-const prettierFormat = require('./prettier')
-
 const { nodeRules } = require('./node')
 const { a11yRules, reactRules } = require('./react')
 const { baseRules } = require('./recommended')
 const { jestRules } = require('./jest')
 const { typescriptRules } = require('./typescript')
-
-const prettierRules = {
-  'prettier/prettier': [2, prettierFormat],
-}
 
 const defaultParserOptions = {
   ecmaVersion: 9,
@@ -53,9 +47,7 @@ const plugin = {
       rules: jestRules,
     },
     prettier: {
-      plugins: ['prettier'],
-      extends: ['plugin:import/warnings'],
-      rules: prettierRules,
+      extends: ['plugin:import/warnings', 'prettier'],
     },
     typescript: {
       plugins: ['@typescript-eslint'],
