@@ -1,7 +1,7 @@
 {
   "name": "@pdq/eslint-plugin-pdq",
   "description": "pdq's ESLint plugin and configurations",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "author": "pdq",
   "license": "MIT",
   "main": "index.js",
