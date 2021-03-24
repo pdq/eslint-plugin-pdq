@@ -39,12 +39,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        # this token is implicitly provided by GitHub Actions
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
+
+    - name: Install
+      run: npm ci
 
     - name: Publish (NPM)
       run: npm publish
