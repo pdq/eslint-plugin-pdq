@@ -103,6 +103,7 @@ const typescriptRules = {
     },
   ],
   '@typescript-eslint/no-useless-constructor': 2,
+  '@typescript-eslint/no-use-before-define': 2,
   '@typescript-eslint/no-var-requires': 2,
   '@typescript-eslint/prefer-function-type': 2,
   '@typescript-eslint/prefer-includes': 2,
