@@ -10,13 +10,13 @@ jobs:
     name: Bump version, create tag/release point
     runs-on: ubuntu-latest
     outputs:
-      new_tag: ${{ steps.bump_version.outputs.new_tag}}
-      part: ${{ steps.bump_version.outputs.part}}
+      new_tag: ${{ steps.bump_version.outputs.new_tag }}
+      part: ${{ steps.bump_version.outputs.part }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          fetch-depth: "0"
+          fetch-depth: '0'
 
       - name: Bump version and push tag/create release point
         id: bump_version
@@ -25,26 +25,33 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: false
           DEFAULT_BUMP: none
+
+      - name: Bump package.json version
+        run: npm version ${{ steps.bump_version.outputs.part }}
+
+      - name: Push tag and package.json
+        run: git push --follow-tags
+
   publish:
     needs: bump_version
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        # this token is implicitly provided by GitHub Actions
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          # this token is implicitly provided by GitHub Actions
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-        registry-url: 'https://registry.npmjs.org'
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
 
-    - name: Install
-      run: npm ci
+      - name: Install
+        run: npm ci
 
-    - name: Publish (NPM)
-      run: npm publish
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish (NPM)
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
