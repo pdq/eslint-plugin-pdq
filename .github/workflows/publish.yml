@@ -23,8 +23,10 @@ jobs:
         uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: false
+          WITH_V: true
           DEFAULT_BUMP: none
+          # basically just using this step to grab the level to pass to `npm version`
+          DRY_RUN: true
 
       - name: Bump package.json version
         run: npm version ${{ steps.bump_version.outputs.part }}
