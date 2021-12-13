@@ -1,13 +1,17 @@
 name: Test
 
 on:
+  push:
+    branches:
+      - "**"
+      - "!main"
   pull_request:
     branches:
-      - main
+      - "**"
+      - "!main"
 
 jobs:
   test:
-    needs: verify
     runs-on: ubuntu-latest
 
     strategy:
