@@ -26,7 +26,7 @@ jobs:
           WITH_V: false
           DEFAULT_BUMP: none
   publish:
-    needs: version
+    needs: bump_version
     runs-on: ubuntu-latest
 
     steps:
