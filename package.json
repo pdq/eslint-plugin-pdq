@@ -14,7 +14,6 @@
     "eslint-check": "eslint --print-config .eslintrc",
     "format": "prettier \"*.js\" \"rules/*.js\" --write && sortpack",
     "prepare": "husky install",
-    "preversion": "npm t",
     "test": "run-s test:format test:lint test:test",
     "test:format": "prettier -c *.js rules",
     "test:lint": "eslint -c .eslintrc.json *.js rules",
