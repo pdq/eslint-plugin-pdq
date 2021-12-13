@@ -1,31 +1,18 @@
-name: CI
+name: Test
 
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, 'skipci')"
-
-    steps:
-    - uses: actions/checkout@v2
-
-    - name: Verify PR title
-      env:
-        PR_TITLE: ${{ toJson(github.event.pull_request.title) }}
-      run: |
-        /bin/bash ./bin/verify-pr-title.sh "$PR_TITLE"
-
   test:
     needs: verify
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [12.x, 14.x, 16.x]
 
     steps:
     - uses: actions/checkout@v2
