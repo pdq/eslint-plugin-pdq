@@ -49,6 +49,10 @@ const plugin = {
     },
     prettier: {
       extends: ['plugin:import/warnings', 'prettier'],
+      plugins: ['prettier'],
+      rules: {
+        'prettier/prettier': 'error',
+      },
     },
     typescript: {
       plugins: ['@typescript-eslint'],
