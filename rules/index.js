@@ -49,6 +49,17 @@ const plugin = {
     },
     prettier: {
       extends: ['plugin:import/warnings', 'prettier'],
+      /**
+       * Prettier plugin is not normally recommended
+       * https://prettier.io/docs/en/integrating-with-linters.html
+       * However, we want this package to serve as a centralized
+       * solution for our JS formatting, without having to require
+       * consumers use the additional check `prettier --check`
+       */
+      plugins: ['prettier'],
+      rules: {
+        'prettier/prettier': 'error',
+      },
     },
     typescript: {
       plugins: ['@typescript-eslint'],
