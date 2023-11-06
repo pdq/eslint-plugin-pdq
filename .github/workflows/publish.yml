@@ -6,42 +6,7 @@ on:
       - main
 
 jobs:
-  bump_version:
-    name: Bump version, create tag/release point
-    runs-on: ubuntu-latest
-    outputs:
-      new_tag: ${{ steps.bump_version.outputs.new_tag }}
-      part: ${{ steps.bump_version.outputs.part }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Bump version and push tag/create release point
-        id: bump_version
-        uses: anothrNick/github-tag-action@1.36.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
-          DEFAULT_BUMP: none
-          # basically just using this step to grab the level to pass to `npm version`
-          DRY_RUN: true
-
-      - name: Setup Git
-        run: |
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config user.name "$GITHUB_ACTOR"
-
-      - name: Bump package.json version
-        run: npm version ${{ steps.bump_version.outputs.part }}
-
-      - name: Push tag and package.json
-        run: git push --follow-tags
-
   publish:
-    needs: bump_version
     runs-on: ubuntu-latest
 
     steps:
