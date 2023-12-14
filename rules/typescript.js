@@ -77,6 +77,10 @@ const typescriptRules = {
         match: false,
       },
     },
+    {
+      selector: 'import',
+      format: ['camelCase', 'PascalCase'],
+    },
   ],
   '@typescript-eslint/no-array-constructor': 2,
   '@typescript-eslint/no-empty-interface': 2,
