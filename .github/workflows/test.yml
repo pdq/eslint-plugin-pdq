@@ -19,7 +19,7 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v6
       with:
         filter: 'blob:none'
         fetch-depth: 1
