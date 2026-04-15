@@ -7,14 +7,16 @@ on:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: depot-ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
         with:
           # this token is implicitly provided by GitHub Actions
           token: ${{ secrets.GITHUB_TOKEN }}
-
+          filter: 'blob:none'
+          fetch-depth: 1
+          fetch-tags: false
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
